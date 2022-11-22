@@ -29,7 +29,6 @@ override.tf.json
 # example: *tfplan*
 
 #
-# ignore elastic's API Key
+# ignore elastic's API Key files
 #
 *.csv
-

@@ -10,10 +10,16 @@ terraform {
 }
 
 provider "ec" {
+  # an apikey must be provided, 
+  # either by an override.tf file
+  # or EC_API_KEY env var
+  # or provide it here (uncomment and edit the following line)
+  #apikey = "...my-api-key..."
 }
 
 resource "ec_deployment" "custom-deployment-id" {
-  name                   = "tf-test-deployments-${count.index}"
+
+  name                   = "sf-hackathon-test-${format("%02d", count.index + 1)}"
 
   region                 = "gcp-us-west1"
   version                = "8.5.1"
@@ -26,7 +32,11 @@ resource "ec_deployment" "custom-deployment-id" {
   kibana {}
   integrations_server {}
 
-  count = 2
+  count = 3
+}
+
+output "deployment_names" {
+  value = [ec_deployment.custom-deployment-id[*].name]
 }
 
 output "elasticsearch_endpoints" {

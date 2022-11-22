@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 // usage:
-// terraform output -json | team-report.js
+// terraform output -json | ./list-deployments.js
 
 var stdin = process.stdin,
   stdout = process.stdout,

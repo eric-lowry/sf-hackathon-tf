@@ -18,7 +18,7 @@ terraform apply
 5. List deployments details
 
 ```bash
-terrform output -json | ./list-deployments
+terrform output -json | ./list-deployments.js
 ```
 
 This will generate a report that looks like this:
